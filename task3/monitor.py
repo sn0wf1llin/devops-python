@@ -8,7 +8,8 @@ import sys
 
 
 class Monitor:
-    def __init__(self, config_file=None, stdin='/dev/null', stdout='/dev/null', stderr='/dev/null'):
+    def __init__(self, config_file=None, stdin='/dev/null',
+                 stdout='/dev/null', stderr='/dev/null'):
         self.name = "Python System Monitor v0.1"
         self._pname = "pysysmon"
         self.interval = None
@@ -100,7 +101,8 @@ class Monitor:
                 with open(self._pidfile, "w") as f:
                     f.write(str(self._process_id) + "\n")
 
-                print(f"{self._process_id} written to {self._pidfile} [ OK ]."
+                print(f"{self._process_id} written to "
+                      f"{self._pidfile} [ OK ]."
                       f" {self.name} started.")
 
                 self._monitor_status = 1
@@ -125,7 +127,7 @@ class Monitor:
         if pid is not None:
             curr_process = psutil.Process(pid)
             curr_process_name = curr_process.name()
-            print(f"Killing process {curr_process_name} with PID {pid} ... ")
+            print(f"Killing process {curr_process_name} with PID {pid} ...")
             try:
                 curr_process.terminate()
                 self._del_pidfile()
@@ -152,18 +154,23 @@ class Monitor:
 
     def _make_snapshot(self):
         sinfo = self._collect_system_info()
-        current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        current_time = datetime.datetime.now().strftime(
+            "%Y-%m-%d %H:%M:%S")
         self.snapshot_counter += 1
 
         if self.output == 'txt':
             # write to txt file
             delim = "\n\t\t\t"
-            net_info_string = "".join(f"{delim}\t{k} {v[0].address}" for k, v
+            net_info_string = "".join(f"{delim}\t{k} {v[0].address}"
+                                      for k, v
                                       in sinfo['net_info'].items())
-            system_info_string = f"System data: {sinfo['system_data']};{delim}" \
+            system_info_string = f"System data: " \
+                f"{sinfo['system_data']}" \
+                f";{delim}" \
                 f"CPU load: {sinfo['cpu_load']};{delim}" \
                 f"Memory usage: {sinfo['memory_usage']};{delim}" \
-                f"Virtual memory usage: {sinfo['virtual_memory_usage']};{delim}" \
+                f"Virtual memory usage: " \
+                f"{sinfo['virtual_memory_usage']};{delim}" \
                 f"IO information: {sinfo['io_info']};{delim}" \
                 f"Network information: {net_info_string};{delim}"
 

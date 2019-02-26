@@ -30,4 +30,3 @@ if __name__ == "__main__":
     primes = find_primes(10000)
     strprimes = "".join(str(i) for i in primes)
     print("".join(strprimes[i] for i in positions))
-

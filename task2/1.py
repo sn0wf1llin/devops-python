@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 def enter_grade():
     grade = input("grade: ")
     try:
@@ -54,11 +52,9 @@ def main():
         student_list.append(read_new_student())
 
 
-
-
 if __name__ == "__main__":
     main()
-=======
+== == == =
 if __name__ == '__main__':
     student_list = []
 
@@ -66,16 +62,12 @@ if __name__ == '__main__':
         name = input()
         score = float(input())
         student_list.append([name, score])
-	
-    
+
     print(student_list)
     student_list = [x for x in student_list if x[1] * 10 % 10 != 0]
-    sorted_mod_student_list = sorted([[i[0], i[1]*100] for i in student_list])
+    sorted_mod_student_list = sorted([[i[0], i[1] * 100] for i in student_list])
     grades_set = set([i[1] for i in sorted_mod_student_list])
     grades_sorted_list = sorted(list(grades_set))
     slv = grades_sorted_list[1]
 
-    print("".join([i[0] + "\n" for i in sorted_mod_student_list if i[1] == slv])) 
-    
-
->>>>>>> 95a96e71aec6806de2b774e68964d631fdecd40c
+    print("".join([i[0] + "\n" for i in sorted_mod_student_list if i[1] == slv]))

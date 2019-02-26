@@ -13,7 +13,7 @@ def diagonalDifference(arr):
     n = len(arr)
 
     s1 = sum([arr[i][i] for i in range(len(arr))])
-    s2 = sum([row[-i-1] for i,row in enumerate(arr)])
+    s2 = sum([row[-i - 1] for i, row in enumerate(arr)])
 
     print("s1 = {}, s2 = {}".format(s1, s2))
     return abs(s1 - s2)
@@ -37,4 +37,3 @@ if __name__ == '__main__':
     fptr.write(str(result) + '\n')
 
     fptr.close()
-
