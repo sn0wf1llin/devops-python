@@ -47,10 +47,8 @@ class GithubPullRequestGrabber:
 
 
 if __name__ == "__main__":
-    """
-    Usage: pr_stats.py [options] 
-    -u|--user <user> -o|--owner <owner> -r|--repo <repo>
-    """
+    # Usage: pr_stats.py [options]
+    # -u|--user <user> -o|--owner <owner> -r|--repo <repo>
 
     gitgrabber = GithubPullRequestGrabber()
 
